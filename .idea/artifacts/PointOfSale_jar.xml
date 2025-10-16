@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PointOfSale:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PointOfSale_jar</output-path>
+    <root id="archive" name="PointOfSale.jar">
+      <element id="module-output" name="PointOfSale" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/Γιωργος/json-20240303.jar" path-in-jar="/" />
+      <element id="library" level="application" name="Python 3.12 (generate_bar_graph) interpreter library" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/Γιωργος/Γιωργος/core-3.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/Γιωργος/Γιωργος/flatlaf-3.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
