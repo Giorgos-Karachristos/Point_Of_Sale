@@ -60,9 +60,7 @@ public class KitchenView extends JPanel {
 
             int panelsPerRow = screenWidth / (innerPanelWidth + spacing);
 
-            int numInnerPanels = ordersData.size() / 3;
-
-            int numRows = (int) Math.ceil((double) numInnerPanels / panelsPerRow);
+            int numRows = (int) Math.ceil((double) ordersData.size() / panelsPerRow);
 
             int outerPanelWidth = screenWidth - 100;
 

@@ -14,7 +14,8 @@ import java.util.Map;
 public class KitchenPanel extends JPanel {
 
     private final KitchenController kitchenController;
-    private final Map<String, ArrayList<JCheckBox>> map = new HashMap<>();
+    private final Map<String, ArrayList<JCheckBox>> jCheckBoxMap = new HashMap<>();
+    private final JButton servedButton;
 
     public KitchenPanel(String orderID, String orderStatus, String orderDateTime) {
         kitchenController = new KitchenController();
@@ -105,7 +106,7 @@ public class KitchenPanel extends JPanel {
             }
             gridy++;
         }
-        map.put(orderID, boxes);
+        jCheckBoxMap.put(orderID, boxes);
 
         JScrollPane jScrollPane = new JScrollPane(orderCenterPanel);
         this.add(jScrollPane, BorderLayout.CENTER);
@@ -113,15 +114,16 @@ public class KitchenPanel extends JPanel {
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout());
 
-        JButton servedButton = new JButton();
+        servedButton = new JButton();
         servedButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         servedButton.setText("Mark as Served");
         servedButton.addActionListener((ActionEvent evt) -> servedButtonActionPerformed(orderID));
+        servedButton.setEnabled(boxes.isEmpty());
         bottomPanel.add(servedButton);
 
         JButton updateStatusButton = new JButton();
         updateStatusButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-        updateStatusButton.addActionListener((ActionEvent evt) -> updateStatusButtonActionPerformed(orderID, map.get(orderID)));
+        updateStatusButton.addActionListener((ActionEvent evt) -> updateStatusButtonActionPerformed(orderID, jCheckBoxMap.get(orderID)));
         updateStatusButton.setText("Update Items Status");
         bottomPanel.add(updateStatusButton);
 
@@ -158,6 +160,9 @@ public class KitchenPanel extends JPanel {
                     succed++;
                 }
                 jCheckBoxArrayList.remove(i);
+            }
+            if (jCheckBoxArrayList.isEmpty()) {
+                servedButton.setEnabled(true);
             }
         }
         if (succed == 0 && failed == 0) {
