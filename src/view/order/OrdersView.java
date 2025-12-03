@@ -23,6 +23,7 @@ public class OrdersView extends JPanel {
         jTabbedPane = new JTabbedPane();
         jTabbedPane.setTabPlacement(JTabbedPane.LEFT);
         jTabbedPane.putClientProperty("JTabbedPane.showTabSeparators", true);
+        jTabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setBackground(Color.white);
         jTabbedPane.setFont(new Font("Segoe UI", Font.PLAIN, 20));
         jTabbedPane.setPreferredSize(new Dimension(500, 100));
