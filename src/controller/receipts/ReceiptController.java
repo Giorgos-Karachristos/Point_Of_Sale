@@ -1,6 +1,6 @@
 package controller.receipts;
 
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 import entities.Order;
 import model.receipts.ReceiptDAO;
 import model.receipts.ReceiptModel;
@@ -18,7 +18,7 @@ public class ReceiptController {
         return receiptDAO.getFinalizedOrdersList();
     }
 
-    public List<KitchenItemCategory> getActiveItemsList(String orderID) {
+    public List<ReceiptItem> getActiveItemsList(String orderID) {
         return receiptDAO.getActiveItemsList(orderID);
     }
 

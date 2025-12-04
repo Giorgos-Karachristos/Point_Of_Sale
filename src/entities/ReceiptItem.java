@@ -1,12 +1,12 @@
 package entities;
 
-public class KitchenItemCategory {
+public class ReceiptItem {
     private String name;
     private int quantity;
     private String tax;
     private String totalPrice;
 
-    public KitchenItemCategory(String name, int quantity, String tax, String totalPrice) {
+    public ReceiptItem(String name, int quantity, String tax, String totalPrice) {
         this.name = name;
         this.quantity = quantity;
         this.tax = tax;

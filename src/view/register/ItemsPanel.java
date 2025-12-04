@@ -1,7 +1,7 @@
 package view.register;
 
 import controller.register.RegisterController;
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,12 +55,12 @@ public class ItemsPanel extends JPanel {
 
         int gridy = 1;
         if (!"Receipt".equals(receiptID) && !"".equals(receiptID)) {
-            List<KitchenItemCategory> kitchenItemCategoryList = registerController.getItemsList(receiptID);
+            List<ReceiptItem> receiptItemList = registerController.getItemsList(receiptID);
             double totalPrice = 0;
-            for (KitchenItemCategory kitchenItemCategory : kitchenItemCategoryList) {
+            for (ReceiptItem receiptItem : receiptItemList) {
                 JLabel itemValueLabel = new JLabel();
                 itemValueLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                itemValueLabel.setText(kitchenItemCategory.getTotalPrice());
+                itemValueLabel.setText(receiptItem.getTotalPrice());
                 gbc = new GridBagConstraints();
                 gbc.gridx = 0;
                 gbc.gridy = gridy;
@@ -69,7 +69,7 @@ public class ItemsPanel extends JPanel {
 
                 JLabel qtyValueLabel = new JLabel();
                 qtyValueLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                qtyValueLabel.setText(String.valueOf(kitchenItemCategory.getQuantity()));
+                qtyValueLabel.setText(String.valueOf(receiptItem.getQuantity()));
                 gbc = new GridBagConstraints();
                 gbc.gridx = 1;
                 gbc.gridy = gridy;
@@ -78,7 +78,7 @@ public class ItemsPanel extends JPanel {
 
                 JLabel taxValueLabel = new JLabel();
                 taxValueLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                taxValueLabel.setText(kitchenItemCategory.getTax() + " %");
+                taxValueLabel.setText(receiptItem.getTax() + " %");
                 gbc = new GridBagConstraints();
                 gbc.gridx = 2;
                 gbc.gridy = gridy;
@@ -87,14 +87,14 @@ public class ItemsPanel extends JPanel {
 
                 JLabel totalPriceValueLabel = new JLabel();
                 totalPriceValueLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                totalPriceValueLabel.setText(kitchenItemCategory.getTotalPrice());
+                totalPriceValueLabel.setText(receiptItem.getTotalPrice());
                 gbc = new GridBagConstraints();
                 gbc.gridx = 3;
                 gbc.gridy = gridy;
                 gbc.insets = new Insets(5, 5, 5, 5);
                 this.add(totalPriceValueLabel, gbc);
 
-                totalPrice = totalPrice + Double.parseDouble(kitchenItemCategory.getTotalPrice());
+                totalPrice = totalPrice + Double.parseDouble(receiptItem.getTotalPrice());
                 gridy++;
                 this.repaint();
             }

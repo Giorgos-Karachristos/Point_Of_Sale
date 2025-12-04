@@ -1,6 +1,6 @@
 package model.receipts;
 
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 import entities.Order;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public interface ReceiptDAO {
      List<Order> getFinalizedOrdersList();
 
-     List<KitchenItemCategory> getActiveItemsList(String orderID);
+     List<ReceiptItem> getActiveItemsList(String orderID);
 
      String refundOrder(int orderID);
 }

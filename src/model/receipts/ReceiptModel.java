@@ -1,6 +1,6 @@
 package model.receipts;
 
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 import entities.Order;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,20 +35,20 @@ public class ReceiptModel implements ReceiptDAO {
     }
 
     @Override
-    public List<KitchenItemCategory> getActiveItemsList(String orderID) {
-        List<KitchenItemCategory> kitchenItemCategoryList = new ArrayList<>();
+    public List<ReceiptItem> getActiveItemsList(String orderID) {
+        List<ReceiptItem> receiptItemList = new ArrayList<>();
         JSONArray items = fetchReceiptData("getActiveItemsList?orderID=" + orderID);
         if (items != null) {
             for (int i = 0; i < items.length(); i++) {
                 try {
                     JSONObject item = items.getJSONObject(i);
-                    kitchenItemCategoryList.add(new KitchenItemCategory(item.getString("NAME"), item.getInt("QUANTITY"), item.getString("TAX"), item.getString("TOTAL_PRICE")));
+                    receiptItemList.add(new ReceiptItem(item.getString("NAME"), item.getInt("QUANTITY"), item.getString("TAX"), item.getString("TOTAL_PRICE")));
                 } catch (JSONException e) {
                     LOGGER.log(Level.WARNING, "Error parsing item data for list", e);
                 }
             }
         }
-        return kitchenItemCategoryList;
+        return receiptItemList;
     }
 
     private JSONArray fetchReceiptData(String endpoint) {

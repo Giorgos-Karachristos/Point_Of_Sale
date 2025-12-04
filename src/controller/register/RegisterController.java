@@ -1,6 +1,6 @@
 package controller.register;
 
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 import model.register.RegisterDAO;
 import model.register.RegisterModel;
 
@@ -17,7 +17,7 @@ public class RegisterController {
         return registerDAO.getOrder(order_ID);
     }
 
-    public List<KitchenItemCategory> getItemsList(String orderID) {
+    public List<ReceiptItem> getItemsList(String orderID) {
         return registerDAO.getItemsList(orderID);
     }
 

@@ -1,6 +1,6 @@
 package model.register;
 
-import entities.KitchenItemCategory;
+import entities.ReceiptItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,20 +36,20 @@ public class RegisterModel implements RegisterDAO {
     }
 
     @Override
-    public List<KitchenItemCategory> getItemsList(String orderID) {
-        List<KitchenItemCategory> kitchenItemCategoryList = new ArrayList<>();
+    public List<ReceiptItem> getItemsList(String orderID) {
+        List<ReceiptItem> receiptItemList = new ArrayList<>();
         JSONArray items = fetchRegisterData("getItemsList?orderID=" + orderID);
         if (items != null) {
             for (int i = 0; i < items.length(); i++) {
                 try {
                     JSONObject item = items.getJSONObject(i);
-                    kitchenItemCategoryList.add(new KitchenItemCategory(item.getString("NAME"), item.getInt("QUANTITY"), item.getString("TAX"), item.getString("TOTAL_PRICE")));
+                    receiptItemList.add(new ReceiptItem(item.getString("NAME"), item.getInt("QUANTITY"), item.getString("TAX"), item.getString("TOTAL_PRICE")));
                 } catch (JSONException e) {
                     LOGGER.log(Level.WARNING, "Error parsing item data for list", e);
                 }
             }
         }
-        return kitchenItemCategoryList;
+        return receiptItemList;
     }
 
     private JSONArray fetchRegisterData(String endpoint) {
