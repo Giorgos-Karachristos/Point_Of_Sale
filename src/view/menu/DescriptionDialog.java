@@ -22,16 +22,14 @@ public class DescriptionDialog extends JDialog {
         this.add(jLabel, gbc);
 
         JTextArea descriptionTextArea = new JTextArea();
-        descriptionTextArea.setColumns(20);
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setFont(new Font("Segoe UI", Font.BOLD, 20));
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setWrapStyleWord(true);
-        descriptionTextArea.setRows(4);
         descriptionTextArea.setText(des);
 
-        JScrollPane jScrollPane1 = new JScrollPane();
-        jScrollPane1.setViewportView(descriptionTextArea);
+        JScrollPane jScrollPane1 = new JScrollPane(descriptionTextArea);
+        jScrollPane1.setPreferredSize(new Dimension(400, 200));
 
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
