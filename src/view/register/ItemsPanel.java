@@ -60,7 +60,7 @@ public class ItemsPanel extends JPanel {
             for (ReceiptItem receiptItem : receiptItemList) {
                 JLabel itemValueLabel = new JLabel();
                 itemValueLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                itemValueLabel.setText(receiptItem.getTotalPrice());
+                itemValueLabel.setText(receiptItem.getName());
                 gbc = new GridBagConstraints();
                 gbc.gridx = 0;
                 gbc.gridy = gridy;

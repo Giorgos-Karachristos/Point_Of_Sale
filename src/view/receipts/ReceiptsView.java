@@ -29,7 +29,7 @@ public class ReceiptsView extends JPanel {
         jTabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setBackground(Color.white);
         jTabbedPane.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-        jTabbedPane.setPreferredSize(new Dimension(600, 100));
+        jTabbedPane.setPreferredSize(new Dimension(650, 100));
 
         jTabbedPane.removeAll();
         orderList = receiptController.getFinalizedOrdersList();
@@ -105,7 +105,6 @@ public class ReceiptsView extends JPanel {
             rp = new ReceiptPanel(orderID, orderName, orderSubtotal, orderDiscount, orderTip, orderTotal, date, time);
 
             JScrollPane jScrollPane = new JScrollPane();
-            jScrollPane.setPreferredSize(new Dimension(450, 250));
             jScrollPane.setViewportView(rp);
 
             if ("Refunt".equals(status)) {
